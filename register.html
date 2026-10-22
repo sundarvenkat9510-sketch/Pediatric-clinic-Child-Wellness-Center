@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent Sign Up – LittleCare Clinic</title>
+  <meta name="description" content="Register your family with LittleCare Pediatric Clinic. Create your parent account to manage pediatric appointments and records.">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+</head>
+<body class="bg-page d-flex flex-column min-vh-100">
+
+  <!-- Top Simple Nav -->
+  <nav class="navbar navbar-custom py-3">
+    <div class="container justify-content-between">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.svg" alt="LittleCare Clinic Logo">
+      </a>
+      <a href="login.html" class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-box-arrow-in-right me-1"></i> Already have an account? Login
+      </a>
+    </div>
+  </nav>
+
+  <!-- Registration Main Container -->
+  <main class="flex-grow-1 py-4 py-md-5">
+    <div class="container">
+      
+      <!-- Registration Card Container (matching clean design in Image 1) -->
+      <div class="register-card">
+        <div class="text-center mb-4">
+          <h2 class="fw-bold mb-1">Create Parent Account</h2>
+          <p class="text-muted small mb-0">Sign up to manage your child's wellness, vaccinations, and clinic visits.</p>
+        </div>
+
+        <!-- Global Error & Success Alerts -->
+        <div id="regErrorAlert" class="alert alert-danger d-none py-2 px-3 small rounded-3 mb-4"></div>
+        <div id="regSuccessAlert" class="alert alert-success d-none py-3 px-4 rounded-4 mb-4 d-flex align-items-center"></div>
+
+        <form id="registerForm" onsubmit="handleRegister(event)" novalidate>
+          
+          <!-- 1. Full Name -->
+          <div class="reg-field-group">
+            <label for="regName" class="reg-field-label">Full Name</label>
+            <input type="text" class="reg-field-input" id="regName" placeholder="Enter your full name" required>
+            <div class="invalid-feedback d-block text-danger small mt-1" id="regNameFeedback"></div>
+          </div>
+
+          <!-- 2. Email Address -->
+          <div class="reg-field-group">
+            <label for="regEmail" class="reg-field-label">Email Address</label>
+            <input type="email" class="reg-field-input" id="regEmail" placeholder="Enter your email" required>
+            <div class="invalid-feedback d-block text-danger small mt-1" id="regEmailFeedback"></div>
+          </div>
+
+          <!-- 3. Phone Number -->
+          <div class="reg-field-group">
+            <label for="regPhone" class="reg-field-label">Phone Number</label>
+            <input type="tel" class="reg-field-input" id="regPhone" placeholder="Enter mobile number" required>
+            <div class="invalid-feedback d-block text-danger small mt-1" id="regPhoneFeedback"></div>
+          </div>
+
+          <!-- 4. Password -->
+          <div class="reg-field-group">
+            <label for="regPassword" class="reg-field-label">Password</label>
+            <div class="password-input-wrap">
+              <input type="password" class="reg-field-input" id="regPassword" placeholder="Create password" required minlength="6">
+              <button type="button" class="btn-password-toggle" onclick="togglePasswordVisibility('regPassword', 'regEyeIcon1')" aria-label="Toggle password view">
+                <i class="bi bi-eye" id="regEyeIcon1"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback d-block text-danger small mt-1" id="regPasswordFeedback"></div>
+          </div>
+
+          <!-- 5. Confirm Password -->
+          <div class="reg-field-group">
+            <label for="regConfirmPassword" class="reg-field-label">Confirm Password</label>
+            <div class="password-input-wrap">
+              <input type="password" class="reg-field-input" id="regConfirmPassword" placeholder="Confirm password" required minlength="6">
+              <button type="button" class="btn-password-toggle" onclick="togglePasswordVisibility('regConfirmPassword', 'regEyeIcon2')" aria-label="Toggle confirm password view">
+                <i class="bi bi-eye" id="regEyeIcon2"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback d-block text-danger small mt-1" id="regConfirmPasswordFeedback"></div>
+          </div>
+
+          <!-- 6. Terms & Conditions Checkbox (Clean row matching Image 1) -->
+          <div class="reg-terms-row">
+            <input type="checkbox" id="regTerms" required>
+            <label for="regTerms">
+              I agree to the <a href="#" onclick="event.preventDefault(); alert('LittleCare Demo Terms: This prototype simulates parent portal features. No real medical records are collected.');">Terms &amp; Conditions</a> and <a href="#" onclick="event.preventDefault(); alert('LittleCare Demo Privacy: Sample data is stored locally in your browser storage.');">Privacy Policy</a>
+            </label>
+          </div>
+          <div class="invalid-feedback d-block text-danger small mt-n2 mb-3" id="regTermsFeedback"></div>
+
+          <!-- 7. Create Account Button -->
+          <button type="submit" id="regSubmitBtn" class="btn-reg-submit">
+            Create Account
+          </button>
+        </form>
+
+        <!-- Already have an account link -->
+        <div class="text-center mt-4 pt-3 border-top">
+          <p class="text-muted small mb-0">
+            Already have an account? 
+            <a href="login.html" class="fw-bold text-primary">Login</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Demo Disclaimer note -->
+      <div class="demo-disclaimer-pill mx-auto mt-4 text-center justify-content-center" style="max-width: 520px;">
+        <i class="bi bi-shield-lock-fill"></i>
+        <span>Frontend demo: Authentication is simulated using browser LocalStorage. No real passwords or sensitive health records are transmitted.</span>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-3 text-center text-muted small border-top bg-white">
+    <div class="container">
+      © 2026 LittleCare Pediatric Clinic &amp; Child Wellness Center. Demo build.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      redirectIfAuth();
+
+      // Real-time error dismissal as parent types
+      const inputs = ['regName', 'regEmail', 'regPhone', 'regPassword', 'regConfirmPassword'];
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const feedback = document.getElementById(id + 'Feedback');
+        if (el) {
+          el.addEventListener('input', () => {
+            el.classList.remove('is-invalid');
+            if (feedback) feedback.textContent = '';
+          });
+        }
+      });
+
+      const terms = document.getElementById('regTerms');
+      if (terms) {
+        terms.addEventListener('change', () => {
+          terms.classList.remove('is-invalid');
+          const fb = document.getElementById('regTermsFeedback');
+          if (fb) fb.textContent = '';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

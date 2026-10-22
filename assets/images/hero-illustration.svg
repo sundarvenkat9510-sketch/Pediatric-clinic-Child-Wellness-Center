@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="60%" stop-color="#F0FDF4"/>
+      <stop offset="100%" stop-color="#FFFBEB"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38B6FF"/>
+      <stop offset="100%" stop-color="#2EC4B6"/>
+    </linearGradient>
+    <linearGradient id="coatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background decorative organic blobs -->
+  <path d="M120 70 C220 20, 480 30, 540 140 C600 250, 550 420, 430 460 C310 500, 150 490, 80 400 C10 310, 20 120, 120 70 Z" fill="url(#bgGrad)" opacity="0.8"/>
+
+  <!-- Floating Sparkles and Stars -->
+  <g fill="#FBBF24" opacity="0.8">
+    <path d="M90 120 L93 128 L101 131 L93 134 L90 142 L87 134 L79 131 L87 128 Z"/>
+    <path d="M520 80 L522 86 L528 88 L522 90 L520 96 L518 90 L512 88 L518 86 Z"/>
+    <path d="M490 380 L493 388 L501 391 L493 394 L490 402 L487 394 L479 391 L487 388 Z"/>
+  </g>
+
+  <!-- Floating Mini Pediatric Cards (Cards with shadow) -->
+  <!-- Top Left: Growth & Vitals badge -->
+  <g filter="url(#softShadow)" transform="translate(40, 160)">
+    <rect width="160" height="64" rx="16" fill="#FFFFFF"/>
+    <circle cx="34" cy="32" r="18" fill="#E0F2FE"/>
+    <path d="M26 36 L31 28 L36 33 L42 24" stroke="#38B6FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="62" y="27" font-family="'Poppins', sans-serif" font-size="12" font-weight="700" fill="#1E293B">Growth Track</text>
+    <text x="62" y="44" font-family="'Nunito', sans-serif" font-size="11" font-weight="600" fill="#10B981">100% on curve</text>
+  </g>
+
+  <!-- Top Right: Vaccine Shield badge -->
+  <g filter="url(#softShadow)" transform="translate(400, 120)">
+    <rect width="165" height="66" rx="16" fill="#FFFFFF"/>
+    <circle cx="34" cy="33" r="18" fill="#ECFDF5"/>
+    <path d="M34 22 L42 25 C42 32, 38 39, 34 42 C30 39, 26 32, 26 25 Z" fill="#2EC4B6"/>
+    <path d="M31 32 L34 35 L38 29" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="62" y="28" font-family="'Poppins', sans-serif" font-size="12" font-weight="700" fill="#1E293B">Immunization</text>
+    <text x="62" y="45" font-family="'Nunito', sans-serif" font-size="11" font-weight="600" fill="#38B6FF">Up to date</text>
+  </g>
+
+  <!-- Bottom Left: Happy Rating Badge -->
+  <g filter="url(#softShadow)" transform="translate(60, 360)">
+    <rect width="170" height="68" rx="16" fill="#FFFFFF"/>
+    <circle cx="34" cy="34" r="18" fill="#FEF3C7"/>
+    <text x="25" y="40" font-size="18">⭐</text>
+    <text x="62" y="28" font-family="'Poppins', sans-serif" font-size="12" font-weight="700" fill="#1E293B">5-Star Pediatric</text>
+    <text x="62" y="46" font-family="'Nunito', sans-serif" font-size="11" font-weight="600" fill="#64748B">2,500+ Families</text>
+  </g>
+
+  <!-- Main Illustration: Pediatrician and Child -->
+  <g transform="translate(160, 90)">
+    <!-- Examination Stool / Table Base -->
+    <ellipse cx="210" cy="330" rx="60" ry="14" fill="#CBD5E1" opacity="0.6"/>
+    <rect x="180" y="270" width="60" height="60" rx="8" fill="#94A3B8"/>
+
+    <!-- Doctor Body -->
+    <!-- Lab Coat -->
+    <path d="M80 180 C80 150, 160 150, 160 180 L170 330 L70 330 Z" fill="url(#coatGrad)" filter="url(#softShadow)"/>
+    <!-- Inner Shirt / Scrubs -->
+    <path d="M105 165 L135 165 L140 230 L100 230 Z" fill="#38B6FF"/>
+    <!-- Stethoscope -->
+    <path d="M106 175 C106 205, 134 205, 134 175" stroke="#475569" stroke-width="3" fill="none"/>
+    <path d="M120 205 L120 225" stroke="#475569" stroke-width="3"/>
+    <circle cx="120" cy="228" r="6" fill="#94A3B8" stroke="#334155" stroke-width="2"/>
+    
+    <!-- Doctor Head -->
+    <ellipse cx="120" cy="115" rx="26" ry="29" fill="#FCD34D"/>
+    <!-- Hair -->
+    <path d="M94 110 C94 80, 146 80, 146 110 C146 95, 140 85, 120 85 C100 85, 94 95, 94 110 Z" fill="#334155"/>
+    <path d="M92 110 C92 135, 100 145, 100 145 C94 135, 94 120, 92 110 Z" fill="#334155"/>
+    <!-- Eyes -->
+    <circle cx="112" cy="115" r="3" fill="#1E293B"/>
+    <circle cx="128" cy="115" r="3" fill="#1E293B"/>
+    <path d="M110 110 Q113 108 116 110" stroke="#1E293B" stroke-width="1.5" fill="none"/>
+    <path d="M124 110 Q127 108 130 110" stroke="#1E293B" stroke-width="1.5" fill="none"/>
+    <!-- Friendly Warm Smile -->
+    <path d="M115 125 Q120 132 125 125" stroke="#B45309" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <circle cx="108" cy="122" r="3" fill="#FF758F" opacity="0.5"/>
+    <circle cx="132" cy="122" r="3" fill="#FF758F" opacity="0.5"/>
+    <!-- Doctor Arm holding friendly clipboard/toy -->
+    <path d="M80 190 Q60 210 75 230" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <circle cx="75" cy="235" r="9" fill="#FCD34D"/>
+    <!-- Doctor Right Arm interacting with child -->
+    <path d="M155 190 Q175 210 190 220" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <circle cx="193" cy="223" r="8" fill="#FCD34D"/>
+
+    <!-- Happy Toddler on Examination Table -->
+    <!-- Toddler Body -->
+    <ellipse cx="210" cy="245" rx="20" ry="26" fill="#F59E0B"/>
+    <rect x="200" y="240" width="20" height="24" rx="6" fill="#10B981"/>
+    <!-- Toddler Head -->
+    <circle cx="210" cy="190" r="22" fill="#FED7AA"/>
+    <!-- Toddler Curly Hair -->
+    <circle cx="200" cy="172" r="8" fill="#78350F"/>
+    <circle cx="212" cy="168" r="9" fill="#78350F"/>
+    <circle cx="222" cy="172" r="8" fill="#78350F"/>
+    <!-- Toddler Face -->
+    <circle cx="203" cy="188" r="3" fill="#1E293B"/>
+    <circle cx="217" cy="188" r="3" fill="#1E293B"/>
+    <circle cx="204" cy="187" r="1" fill="#FFFFFF"/>
+    <circle cx="218" cy="187" r="1" fill="#FFFFFF"/>
+    <!-- Big Joyful Smile -->
+    <path d="M206 198 Q210 205 215 198" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <circle cx="198" cy="194" r="3.5" fill="#FF758F" opacity="0.6"/>
+    <circle cx="222" cy="194" r="3.5" fill="#FF758F" opacity="0.6"/>
+    <!-- Toddler cute teddy bear in hand -->
+    <g transform="translate(225, 230)">
+      <circle cx="12" cy="8" r="4" fill="#B45309"/>
+      <circle cx="24" cy="8" r="4" fill="#B45309"/>
+      <circle cx="18" cy="15" r="9" fill="#D97706"/>
+      <ellipse cx="18" cy="17" rx="4" ry="3" fill="#FDE68A"/>
+      <circle cx="18" cy="16" r="1.5" fill="#1E293B"/>
+      <!-- Body -->
+      <ellipse cx="18" cy="28" rx="8" ry="10" fill="#D97706"/>
+    </g>
+  </g>
+</svg>

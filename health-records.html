@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Records – LittleCare Parent Dashboard</title>
+  <meta name="description" content="View pediatric visit summaries, doctor advice, prescriptions, and log parent home health notes.">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/dashboard.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-wrapper">
+    <!-- Mobile Sidebar Backdrop -->
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside id="dashboardSidebar" class="sidebar">
+      <div class="sidebar-header">
+        <a class="sidebar-brand" href="dashboard.html">
+          <img src="assets/images/logo.svg" alt="LittleCare Logo">
+        </a>
+      </div>
+
+      <div class="sidebar-body">
+        <span class="sidebar-section-title">Parent Portal</span>
+        <ul class="sidebar-nav">
+          <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="bi bi-grid-1x2-fill"></i> Overview</a></li>
+          <li class="nav-item"><a href="children.html" class="nav-link"><i class="bi bi-people-fill"></i> My Children</a></li>
+          <li class="nav-item"><a href="appointments.html" class="nav-link"><i class="bi bi-calendar2-check-fill"></i> Appointments</a></li>
+          <li class="nav-item"><a href="vaccinations.html" class="nav-link"><i class="bi bi-shield-fill-plus"></i> Vaccination Schedule</a></li>
+          <li class="nav-item"><a href="growth-charts.html" class="nav-link"><i class="bi bi-graph-up-arrow"></i> Growth Charts</a></li>
+          <li class="nav-item"><a href="health-records.html" class="nav-link active"><i class="bi bi-file-earmark-medical-fill"></i> Health Records</a></li>
+        </ul>
+
+        <span class="sidebar-section-title mt-4">Clinic Shortcuts</span>
+        <ul class="sidebar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link"><i class="bi bi-house-door"></i> Clinic Homepage</a></li>
+          <li class="nav-item"><a href="doctors.html" class="nav-link"><i class="bi bi-person-badge"></i> Doctors Directory</a></li>
+        </ul>
+      </div>
+
+      <!-- User Mini Profile Footer -->
+      <div class="sidebar-footer">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="user-mini-card">
+            <img id="sidebarUserAvatar" src="assets/images/parent-avatar.svg" class="user-mini-avatar" alt="Parent Avatar">
+            <div class="overflow-hidden">
+              <p id="sidebarUserName" class="user-mini-name text-truncate">Sarah Jenkins</p>
+              <p id="sidebarUserEmail" class="user-mini-role text-truncate">sarah.parent@example.com</p>
+            </div>
+          </div>
+          <button class="btn btn-sm btn-outline-secondary p-1 px-2 border-0" onclick="handleLogout()" title="Sign Out">
+            <i class="bi bi-box-arrow-right fs-5 text-danger"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="sidebarToggleBtn" class="sidebar-toggle-btn" aria-label="Toggle Sidebar Navigation">
+            <i class="bi bi-list"></i>
+          </button>
+          <div class="d-none d-sm-block">
+            <h5 class="fw-bold mb-0">Health Records</h5>
+            <small class="text-muted" style="font-size: 0.775rem;">Visit Summaries &amp; Care Notes</small>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div id="topbarChildSwitcher"></div>
+          <div class="dropdown">
+            <div class="d-flex align-items-center gap-2 cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+              <img id="topbarUserAvatar" src="assets/images/parent-avatar.svg" class="rounded-circle border" width="36" height="36" alt="Parent Avatar">
+              <i class="bi bi-chevron-down text-muted small"></i>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end shadow-md border-0 p-2" style="border-radius: 1rem;">
+              <li><a class="dropdown-item py-2" href="dashboard.html"><i class="bi bi-grid-fill me-2"></i>Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 text-danger" href="#" onclick="handleLogout(); return false;"><i class="bi bi-box-arrow-right me-2"></i>Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content Body -->
+      <main class="dashboard-content">
+        
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <h3 class="fw-bold mb-1">
+              Health Records for <span class="text-primary" id="recordsActiveChildName">Selected Child</span>
+            </h3>
+            <p class="text-muted mb-0 small">
+              Fictional demonstration records, visit advice, and parent observations.
+            </p>
+          </div>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addParentNoteModal">
+            <i class="bi bi-pencil-square me-2"></i> Add Parent Note
+          </button>
+        </div>
+
+        <!-- Categorized Tabs Navigation -->
+        <ul class="nav nav-pills mb-4 gap-2" id="healthRecordsTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active rounded-pill fw-bold" id="visits-tab" data-bs-toggle="pill" data-bs-target="#tabVisits" type="button" role="tab">
+              <i class="bi bi-clipboard2-pulse me-1"></i> Visit Summaries
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-pill fw-bold" id="meds-tab" data-bs-toggle="pill" data-bs-target="#tabMeds" type="button" role="tab">
+              <i class="bi bi-capsule me-1"></i> Prescriptions &amp; Supplements
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-pill fw-bold" id="notes-tab" data-bs-toggle="pill" data-bs-target="#tabNotes" type="button" role="tab">
+              <i class="bi bi-journal-text me-1"></i> Parent Home Notes
+            </button>
+          </li>
+        </ul>
+
+        <!-- Tab Contents -->
+        <div class="tab-content" id="healthRecordsTabContent">
+          
+          <!-- TAB 1: Visit Summaries -->
+          <div class="tab-pane fade show active" id="tabVisits" role="tabpanel">
+            <div id="visitSummariesContainer">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+
+          <!-- TAB 2: Prescriptions -->
+          <div class="tab-pane fade" id="tabMeds" role="tabpanel">
+            <div class="row g-4" id="prescriptionsContainer">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+
+          <!-- TAB 3: Parent Notes -->
+          <div class="tab-pane fade" id="tabNotes" role="tabpanel">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold mb-0">Parent Home Observations</h5>
+              <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addParentNoteModal">
+                <i class="bi bi-plus-lg me-1"></i> New Observation
+              </button>
+            </div>
+            <div id="parentNotesContainer">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Demo Disclaimer -->
+        <div class="demo-disclaimer-pill mt-4">
+          <i class="bi bi-info-circle-fill"></i>
+          <span>Sample Data Notice: All visit records, doctor notes, and prescriptions are demonstration placeholders. LittleCare does not collect or transmit real protected medical records.</span>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal: Add Parent Note -->
+  <div class="modal fade" id="addParentNoteModal" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4 p-3">
+        <div class="modal-header border-0 pb-0">
+          <h4 class="fw-bold" id="noteModalLabel">Log Home Observation Note</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addParentNoteForm" onsubmit="handleSaveParentNote(event)">
+            <div class="mb-3">
+              <label for="noteTitle" class="form-label">Observation Title *</label>
+              <input type="text" class="form-control" id="noteTitle" required placeholder="e.g. Mild cheek redness after playground">
+            </div>
+
+            <div class="mb-3">
+              <label for="noteDate" class="form-label">Date *</label>
+              <input type="date" class="form-control" id="noteDate" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="noteContent" class="form-label">Observation Details *</label>
+              <textarea class="form-control" id="noteContent" rows="4" required placeholder="Describe what you observed, what food was eaten, temperature readings, or comfort measures used..."></textarea>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 mt-4">
+              <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary btn-sm">Save Note</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHealthRecords();
+      
+      const dateInput = document.getElementById('noteDate');
+      if (dateInput) dateInput.value = new Date().toISOString().split('T')[0];
+    });
+
+    function renderHealthRecords() {
+      const db = getDB();
+      const activeChildId = db.currentUser.activeChildId;
+      const activeChild = db.children.find(c => c.id === activeChildId) || db.children[0];
+
+      const nameEl = document.getElementById('recordsActiveChildName');
+      if (nameEl && activeChild) nameEl.textContent = activeChild.name;
+
+      // 1. Render Visit Summaries
+      const visits = (db.healthRecords || []).filter(h => !activeChildId || h.childId === activeChildId);
+      const visitsContainer = document.getElementById('visitSummariesContainer');
+      if (visitsContainer) {
+        if (visits.length === 0) {
+          visitsContainer.innerHTML = `
+            <div class="card-custom p-5 text-center text-muted">
+              <i class="bi bi-file-earmark-medical fs-1 mb-2"></i>
+              <h5>No Visit Summaries Yet</h5>
+              <p class="small">Completed clinic consultations will appear here with pediatrician advice.</p>
+            </div>
+          `;
+        } else {
+          visitsContainer.innerHTML = visits.map(v => `
+            <div class="card-custom p-4 mb-3">
+              <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 border-bottom pb-3 mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="p-2 rounded-circle bg-soft-primary text-primary fs-4" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-stethoscope"></i>
+                  </div>
+                  <div>
+                    <span class="badge bg-soft-primary text-primary fw-bold mb-1">${v.type}</span>
+                    <h5 class="fw-bold mb-0">${v.diagnosis}</h5>
+                    <small class="text-muted"><i class="bi bi-calendar3 me-1"></i>${v.date} • Attending: <strong>${v.doctor}</strong></small>
+                  </div>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" onclick="window.print()">
+                  <i class="bi bi-printer me-1"></i> Print Summary
+                </button>
+              </div>
+              <div class="row g-3 small">
+                <div class="col-md-6">
+                  <h6 class="fw-bold text-dark mb-1"><i class="bi bi-clipboard2-check text-mint me-1"></i>Clinical Findings</h6>
+                  <p class="text-muted mb-0">${v.findings}</p>
+                </div>
+                <div class="col-md-6">
+                  <h6 class="fw-bold text-dark mb-1"><i class="bi bi-chat-heart text-coral me-1"></i>Doctor's Advice &amp; Home Care</h6>
+                  <p class="text-muted mb-0">${v.instructions}</p>
+                </div>
+                ${v.prescriptions ? `
+                  <div class="col-12 mt-2 pt-2 border-top">
+                    <span class="fw-bold text-dark me-2"><i class="bi bi-capsule text-primary me-1"></i>Prescribed / Recommended:</span>
+                    <span class="text-secondary">${v.prescriptions}</span>
+                  </div>
+                ` : ''}
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      // 2. Render Prescriptions
+      const presContainer = document.getElementById('prescriptionsContainer');
+      if (presContainer) {
+        presContainer.innerHTML = `
+          <div class="col-md-6">
+            <div class="card-custom p-4 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-capsule text-primary fs-4"></i>
+                  <h5 class="fw-bold mb-0">Multivitamin with Vitamin D3</h5>
+                </div>
+                <span class="badge bg-soft-mint text-mint">Active Daily</span>
+              </div>
+              <p class="text-muted small mb-2"><strong>Dosage:</strong> 400 IU (1 ml dropper) once daily in morning feed.</p>
+              <p class="text-muted small mb-2"><strong>Purpose:</strong> Bone development &amp; immune defense booster.</p>
+              <p class="text-muted small mb-0"><strong>Prescribed By:</strong> Dr. Sophia Martinez</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card-custom p-4 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-droplet-half text-warning fs-4"></i>
+                  <h5 class="fw-bold mb-0">Saline Nasal Drops (0.9% NaCl)</h5>
+                </div>
+                <span class="badge bg-soft-yellow text-warning">As Needed</span>
+              </div>
+              <p class="text-muted small mb-2"><strong>Dosage:</strong> 2 drops per nostril before naps when congested.</p>
+              <p class="text-muted small mb-2"><strong>Purpose:</strong> Gentle airway clearance during viral colds.</p>
+              <p class="text-muted small mb-0"><strong>Prescribed By:</strong> Dr. Ethan Hayes</p>
+            </div>
+          </div>
+        `;
+      }
+
+      // 3. Render Parent Notes
+      const notes = (db.parentNotes || []).filter(n => !activeChildId || n.childId === activeChildId);
+      const notesContainer = document.getElementById('parentNotesContainer');
+      if (notesContainer) {
+        if (notes.length === 0) {
+          notesContainer.innerHTML = `
+            <div class="card-custom p-4 text-center text-muted">
+              <p class="mb-0">No home observation notes logged for this child profile yet.</p>
+            </div>
+          `;
+        } else {
+          notesContainer.innerHTML = notes.map(n => `
+            <div class="card-custom p-3 mb-3">
+              <div class="d-flex align-items-center justify-content-between mb-1">
+                <h6 class="fw-bold mb-0"><i class="bi bi-pencil text-primary me-2"></i>${n.title}</h6>
+                <small class="text-muted">${n.date}</small>
+              </div>
+              <p class="text-muted small mb-0">${n.content}</p>
+            </div>
+          `).join('');
+        }
+      }
+    }
+
+    function handleSaveParentNote(event) {
+      event.preventDefault();
+      const db = getDB();
+      const activeChildId = db.currentUser.activeChildId || db.children[0]?.id;
+
+      const title = document.getElementById('noteTitle').value.trim();
+      const date = document.getElementById('noteDate').value;
+      const content = document.getElementById('noteContent').value.trim();
+
+      if (!db.parentNotes) db.parentNotes = [];
+      db.parentNotes.unshift({
+        id: 'pn-' + Date.now(),
+        childId: activeChildId,
+        date: date,
+        title: title,
+        content: content
+      });
+
+      saveDB(db);
+
+      const modalEl = document.getElementById('addParentNoteModal');
+      if (modalEl && window.bootstrap) {
+        const modal = bootstrap.Modal.getInstance(modalEl);
+        if (modal) modal.hide();
+      }
+
+      showToast("Home observation note saved successfully!", "success");
+      renderHealthRecords();
+      document.getElementById('addParentNoteForm').reset();
+    }
+  </script>
+</body>
+</html>

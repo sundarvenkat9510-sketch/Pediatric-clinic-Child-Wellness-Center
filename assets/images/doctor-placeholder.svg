@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <rect width="300" height="300" fill="#F1F5F9"/>
+  <!-- Circle backdrop -->
+  <circle cx="150" cy="150" r="120" fill="#E2E8F0"/>
+  <!-- Doctor Icon -->
+  <circle cx="150" cy="120" r="45" fill="#94A3B8"/>
+  <path d="M75 250 C75 195, 225 195, 225 250 Z" fill="#64748B"/>
+  <path d="M135 180 L150 200 L165 180 Z" fill="#38B6FF"/>
+  <circle cx="150" cy="215" r="12" fill="#E2E8F0" stroke="#334155" stroke-width="3"/>
+</svg>

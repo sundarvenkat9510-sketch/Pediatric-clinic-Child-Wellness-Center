@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Pediatric Services – LittleCare Clinic</title>
+  <meta name="description" content="Explore comprehensive pediatric medical services offered at LittleCare: well-child exams, vaccinations, developmental screening, and nutrition guidance.">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.svg" alt="LittleCare Clinic Logo">
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a href="dashboard.html" id="navDashboardBtn" class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-grid-fill me-1"></i> Dashboard
+          </a>
+          <a href="login.html" id="navAuthBtn" class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-box-arrow-in-right me-1"></i> Parent Login
+          </a>
+          <a href="register.html" id="navSignUpBtn" class="btn btn-primary btn-sm">
+            <i class="bi bi-person-plus me-1"></i> Sign Up
+          </a>
+          <a href="appointments.html" class="btn btn-coral btn-sm">
+            <i class="bi bi-calendar-check me-1"></i> Book Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header Banner -->
+  <section class="py-5 bg-soft-primary border-bottom">
+    <div class="container text-center py-3">
+      <span class="section-badge">Medical & Wellness Excellence</span>
+      <h1 class="font-heading fw-bold mt-2 mb-3">Our Pediatric Healthcare Services</h1>
+      <p class="text-muted mx-auto" style="max-width: 650px;">
+        Providing gentle, evidence-based pediatric care tailored to your child's age, growth stage, and personal wellness requirements.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="section-padding bg-white">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Service 1: Well-Child Visits -->
+        <div class="col-md-6 col-lg-4" id="checkups">
+          <div class="card-custom service-card">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="service-icon-box bg-soft-primary text-primary mb-0">
+                <i class="bi bi-clipboard2-pulse"></i>
+              </div>
+              <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-clock me-1"></i>30 - 45 Min</span>
+            </div>
+            <h4 class="fw-bold">Well-Child Visits</h4>
+            <span class="text-primary fw-semibold small mb-2 d-block">Recommended: Birth to 18 Years</span>
+            <p>
+              Routine preventive health assessments evaluating head-to-toe physical development, vital signs, motor milestones, and sensory health.
+            </p>
+            <ul class="list-unstyled text-muted small mb-4">
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Physical examination & vitals review</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Vision & auditory screening</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Early milestone checks</li>
+            </ul>
+            <a href="appointments.html" class="btn btn-primary btn-sm mt-auto">
+              Book Appointment <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 2: Childhood Vaccinations -->
+        <div class="col-md-6 col-lg-4" id="vaccines">
+          <div class="card-custom service-card">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="service-icon-box bg-soft-mint text-mint mb-0">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-clock me-1"></i>20 - 30 Min</span>
+            </div>
+            <h4 class="fw-bold">Childhood Vaccinations</h4>
+            <span class="text-mint fw-semibold small mb-2 d-block">Recommended: AAP/CDC Schedule</span>
+            <p>
+              Administering essential immunizations in a calm, gentle setting to protect against measles, mumps, polio, tetanus, flu, and hepatitis.
+            </p>
+            <ul class="list-unstyled text-muted small mb-4">
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Safe temperature-controlled vaccines</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Gentle distraction techniques</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Digital immunization card sync</li>
+            </ul>
+            <a href="appointments.html" class="btn btn-primary btn-sm mt-auto">
+              Book Appointment <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 3: Growth & Development Monitoring -->
+        <div class="col-md-6 col-lg-4" id="growth">
+          <div class="card-custom service-card">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="service-icon-box bg-soft-yellow text-warning mb-0">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-clock me-1"></i>30 Min</span>
+            </div>
+            <h4 class="fw-bold">Growth & Development</h4>
+            <span class="text-warning fw-semibold small mb-2 d-block">Recommended: Every 3 - 6 Months</span>
+            <p>
+              Precise measurement and tracking of height, weight, BMI, and head circumference against WHO and CDC growth percentiles.
+            </p>
+            <ul class="list-unstyled text-muted small mb-4">
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Percentile trajectory analysis</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Motor and speech progress tracking</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Growth faltering intervention</li>
+            </ul>
+            <a href="appointments.html" class="btn btn-primary btn-sm mt-auto">
+              Book Appointment <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 4: Nutrition & Wellness Guidance -->
+        <div class="col-md-6 col-lg-4" id="nutrition">
+          <div class="card-custom service-card">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="service-icon-box bg-soft-coral text-coral mb-0">
+                <i class="bi bi-egg-fried"></i>
+              </div>
+              <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-clock me-1"></i>30 - 45 Min</span>
+            </div>
+            <h4 class="fw-bold">Nutrition & Wellness</h4>
+            <span class="text-coral fw-semibold small mb-2 d-block">Recommended: Infants to Teens</span>
+            <p>
+              Custom nutrition plans for picky eaters, transitioning infants to solids, food allergy avoidance, and managing pediatric weight wellness.
+            </p>
+            <ul class="list-unstyled text-muted small mb-4">
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Weaning & solid food introduction</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Toddler meal plans & iron support</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Food intolerance assessments</li>
+            </ul>
+            <a href="appointments.html" class="btn btn-primary btn-sm mt-auto">
+              Book Appointment <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 5: Newborn & Infant Care -->
+        <div class="col-md-6 col-lg-4" id="newborn">
+          <div class="card-custom service-card">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="service-icon-box bg-soft-primary text-primary mb-0">
+                <i class="bi bi-balloon-heart"></i>
+              </div>
+              <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-clock me-1"></i>45 Min</span>
+            </div>
+            <h4 class="fw-bold">Newborn & Infant Care</h4>
+            <span class="text-primary fw-semibold small mb-2 d-block">Recommended: 0 - 12 Months</span>
+            <p>
+              Dedicated support for first-time parents covering newborn jaundice checks, umbilical cord care, infant sleep cycles, and lactation advice.
+            </p>
+            <ul class="list-unstyled text-muted small mb-4">
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Post-hospital 3-5 day checks</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Colic & reflux management</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Safe sleep counseling</li>
+            </ul>
+            <a href="appointments.html" class="btn btn-primary btn-sm mt-auto">
+              Book Appointment <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 6: General Consultations -->
+        <div class="col-md-6 col-lg-4" id="consults">
+          <div class="card-custom service-card">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="service-icon-box bg-soft-mint text-mint mb-0">
+                <i class="bi bi-bandaid"></i>
+              </div>
+              <span class="badge bg-light text-dark border px-2 py-1"><i class="bi bi-clock me-1"></i>25 Min</span>
+            </div>
+            <h4 class="fw-bold">Pediatric Consultations</h4>
+            <span class="text-mint fw-semibold small mb-2 d-block">Recommended: As Needed for Illness</span>
+            <p>
+              Prompt diagnosis and compassionate treatment for childhood illnesses including colds, ear infections, mild fevers, rashes, and stomach bugs.
+            </p>
+            <ul class="list-unstyled text-muted small mb-4">
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Ear, nose & throat examination</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Same-day urgent illness visits</li>
+              <li><i class="bi bi-check-circle-fill text-mint me-2"></i>Clear parent care instructions</li>
+            </ul>
+            <a href="appointments.html" class="btn btn-primary btn-sm mt-auto">
+              Book Appointment <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clinic Visit FAQ Section -->
+  <section class="section-padding bg-page">
+    <div class="container" style="max-width: 820px;">
+      <div class="section-header">
+        <span class="section-badge">Frequently Asked Questions</span>
+        <h2 class="section-title">Preparing for Your Child's Visit</h2>
+        <p class="section-subtitle">Common questions from parents regarding clinic procedures and appointments.</p>
+      </div>
+
+      <div class="accordion accordion-custom shadow-sm" id="servicesFaq">
+        <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden">
+          <h2 class="accordion-header" id="faqHeadingOne">
+            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne">
+              What should I bring to my child's first appointment?
+            </button>
+          </h2>
+          <div id="faqCollapseOne" class="accordion-collapse collapse show" data-bs-parent="#servicesFaq">
+            <div class="accordion-body text-muted">
+              Please bring your child's immunization card/record, hospital birth discharge summary (for newborns), insurance card or photo ID, and a list of any current medications or allergy notes. A favorite comfort toy or blanket is also recommended!
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden">
+          <h2 class="accordion-header" id="faqHeadingTwo">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo">
+              How often does my baby need well-child checkups?
+            </button>
+          </h2>
+          <div id="faqCollapseTwo" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+            <div class="accordion-body text-muted">
+              According to American Academy of Pediatrics (AAP) standards, routine visits occur at 3-5 days after birth, 1 month, 2 months, 4 months, 6 months, 9 months, 12 months, 15 months, 18 months, 24 months, 30 months, and annually starting from age 3.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden">
+          <h2 class="accordion-header" id="faqHeadingThree">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree">
+              Can I access my child's records and vaccine history online?
+            </button>
+          </h2>
+          <div id="faqCollapseThree" class="accordion-collapse collapse" data-bs-parent="#servicesFaq">
+            <div class="accordion-body text-muted">
+              Yes! Through our LittleCare Parent Portal, registered parents can view upcoming and completed immunizations, monitor height and weight growth charts, and view appointment histories at any time.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a href="index.html" class="d-inline-block mb-3" aria-label="LittleCare Home">
+            <img src="assets/images/logo-footer.svg" alt="LittleCare Logo" style="height: 44px;">
+          </a>
+          <p class="footer-desc">
+            LittleCare Pediatric Clinic & Child Wellness Center is committed to providing exemplary, child-centered healthcare in a gentle, warm, and playful environment.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="X (formerly Twitter)">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="doctors.html">Doctors Directory</a></li>
+            <li><a href="about.html">About LittleCare</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Parent Portal</h5>
+          <ul class="footer-links">
+            <li><a href="login.html">Parent Login</a></li>
+            <li><a href="register.html">Register Family</a></li>
+            <li><a href="dashboard.html">Parent Dashboard</a></li>
+            <li><a href="appointments.html">Book Appointment</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5>Clinic Location & Hours</h5>
+          <p class="mb-2"><i class="bi bi-geo-alt me-2 text-primary"></i> 742 Evergreen Terrace, Springfield, IL 62704</p>
+          <p class="mb-2"><i class="bi bi-telephone me-2 text-mint"></i> +1 (555) 019-2834</p>
+          <p class="mb-0"><i class="bi bi-clock me-2 text-coral"></i> Mon - Sat: 8:00 AM – 7:00 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-wrap align-items-center justify-content-between">
+        <p class="mb-0 text-muted">© 2026 LittleCare Pediatric Clinic. All rights reserved. Sample demonstration build.</p>
+        <div>
+          <a href="#" onclick="resetDemoData(); return false;" class="text-warning small"><i class="bi bi-arrow-counterclockwise"></i> Reset Demo Data</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTopBtn" class="btn-back-to-top" title="Back to top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

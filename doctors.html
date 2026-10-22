@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Pediatric Specialists – LittleCare Clinic</title>
+  <meta name="description" content="Meet LittleCare's board-certified pediatricians and child health specialists. Search by specialization and book clinic appointments.">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.svg" alt="LittleCare Clinic Logo">
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link active" href="doctors.html">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <a href="dashboard.html" id="navDashboardBtn" class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-grid-fill me-1"></i> Dashboard
+          </a>
+          <a href="login.html" id="navAuthBtn" class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-box-arrow-in-right me-1"></i> Parent Login
+          </a>
+          <a href="register.html" id="navSignUpBtn" class="btn btn-primary btn-sm">
+            <i class="bi bi-person-plus me-1"></i> Sign Up
+          </a>
+          <a href="appointments.html" class="btn btn-coral btn-sm">
+            <i class="bi bi-calendar-check me-1"></i> Book Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header Banner -->
+  <section class="py-5 bg-soft-primary border-bottom">
+    <div class="container text-center py-3">
+      <span class="section-badge">Pediatric Medical Directory</span>
+      <h1 class="font-heading fw-bold mt-2 mb-3">Meet Our Expert Pediatricians</h1>
+      <p class="text-muted mx-auto mb-0" style="max-width: 650px;">
+        Every physician at LittleCare combines rigorous pediatric medical accreditation with a gentle, child-friendly approach that puts young patients at ease.
+      </p>
+    </div>
+  </section>
+
+  <!-- Search & Filter Controls -->
+  <section class="py-4 bg-white border-bottom">
+    <div class="container">
+      <div class="row g-3 align-items-center justify-content-between">
+        <!-- Search input -->
+        <div class="col-md-5">
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+            <input type="text" id="doctorSearchInput" class="form-control border-start-0" placeholder="Search doctor by name or specialty...">
+          </div>
+        </div>
+
+        <!-- Specialization Filter Pills -->
+        <div class="col-md-7">
+          <div class="d-flex flex-wrap gap-2 justify-content-md-end" id="specialtyFilterGroup">
+            <button class="btn btn-sm btn-primary filter-pill active" data-specialty="All">All Specialists</button>
+            <button class="btn btn-sm btn-outline-secondary filter-pill" data-specialty="General">General Pediatrics</button>
+            <button class="btn btn-sm btn-outline-secondary filter-pill" data-specialty="Allergy">Allergy & Asthma</button>
+            <button class="btn btn-sm btn-outline-secondary filter-pill" data-specialty="Development">Developmental</button>
+            <button class="btn btn-sm btn-outline-secondary filter-pill" data-specialty="Cardiology">Cardiology</button>
+            <button class="btn btn-sm btn-outline-secondary filter-pill" data-specialty="Nutrition">Nutrition</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctors Grid -->
+  <section class="section-padding bg-page">
+    <div class="container">
+      <!-- Demo Disclaimer notice -->
+      <div class="demo-disclaimer-pill mb-4">
+        <i class="bi bi-info-circle-fill"></i>
+        <span>Demonstration Note: Doctor profiles, ratings, and schedules are sample mock data for testing portal interactions.</span>
+      </div>
+
+      <div class="row g-4" id="doctorsGridContainer">
+        <!-- Dynamically rendered via JS or pre-rendered with fallback -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor Profile Modal -->
+  <div class="modal fade" id="doctorProfileModal" tabindex="-1" aria-labelledby="doctorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-header border-0 bg-soft-primary p-4 pb-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4 pt-2">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-4 text-center">
+              <img id="modalDocImage" src="" alt="Doctor Photo" class="img-fluid rounded-4 shadow-sm" style="max-height: 250px; object-fit: cover;">
+              <div class="mt-3">
+                <span class="badge bg-soft-primary text-primary px-3 py-2 fw-bold" id="modalDocExp"></span>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <span class="text-uppercase text-primary fw-bold small" id="modalDocSpecialty"></span>
+              <h3 class="fw-bold mb-1" id="modalDocName"></h3>
+              <p class="text-muted mb-3" id="modalDocTitle"></p>
+              
+              <h6 class="fw-bold text-dark mb-1">Biography & Focus</h6>
+              <p class="text-muted small mb-3" id="modalDocBio"></p>
+
+              <div class="bg-light p-3 rounded-3 mb-3">
+                <div class="row g-2 small">
+                  <div class="col-6">
+                    <span class="text-muted d-block">Education:</span>
+                    <strong class="text-dark" id="modalDocEdu"></strong>
+                  </div>
+                  <div class="col-6">
+                    <span class="text-muted d-block">Clinic Suite:</span>
+                    <strong class="text-dark" id="modalDocRoom"></strong>
+                  </div>
+                  <div class="col-12 mt-2">
+                    <span class="text-muted d-block">Consultation Hours:</span>
+                    <strong class="text-dark" id="modalDocSchedule"></strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex gap-2">
+                <a href="#" id="modalDocBookBtn" class="btn btn-primary flex-grow-1">
+                  <i class="bi bi-calendar-check me-2"></i> Book Appointment with Doctor
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a href="index.html" class="d-inline-block mb-3" aria-label="LittleCare Home">
+            <img src="assets/images/logo-footer.svg" alt="LittleCare Logo" style="height: 44px;">
+          </a>
+          <p class="footer-desc">
+            LittleCare Pediatric Clinic & Child Wellness Center is committed to providing exemplary, child-centered healthcare in a gentle, warm, and playful environment.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="X (formerly Twitter)">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="doctors.html">Doctors Directory</a></li>
+            <li><a href="about.html">About LittleCare</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Parent Portal</h5>
+          <ul class="footer-links">
+            <li><a href="login.html">Parent Login</a></li>
+            <li><a href="register.html">Register Family</a></li>
+            <li><a href="dashboard.html">Parent Dashboard</a></li>
+            <li><a href="appointments.html">Book Appointment</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5>Clinic Location & Hours</h5>
+          <p class="mb-2"><i class="bi bi-geo-alt me-2 text-primary"></i> 742 Evergreen Terrace, Springfield, IL 62704</p>
+          <p class="mb-2"><i class="bi bi-telephone me-2 text-mint"></i> +1 (555) 019-2834</p>
+          <p class="mb-0"><i class="bi bi-clock me-2 text-coral"></i> Mon - Sat: 8:00 AM – 7:00 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-wrap align-items-center justify-content-between">
+        <p class="mb-0 text-muted">© 2026 LittleCare Pediatric Clinic. All rights reserved. Sample demonstration build.</p>
+        <div>
+          <a href="#" onclick="resetDemoData(); return false;" class="text-warning small"><i class="bi bi-arrow-counterclockwise"></i> Reset Demo Data</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTopBtn" class="btn-back-to-top" title="Back to top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Doctors page specific interactive logic
+    let activeSpecialty = 'All';
+    let searchQuery = '';
+
+    function renderDoctors() {
+      const db = getDB();
+      const doctors = db.doctors || [];
+      const container = document.getElementById('doctorsGridContainer');
+      if (!container) return;
+
+      const filtered = doctors.filter(doc => {
+        const matchesSearch = doc.name.toLowerCase().includes(searchQuery) ||
+                              doc.specialty.toLowerCase().includes(searchQuery) ||
+                              doc.bio.toLowerCase().includes(searchQuery);
+
+        if (!matchesSearch) return false;
+        if (activeSpecialty === 'All') return true;
+        if (activeSpecialty === 'General') return doc.specialty.includes('General');
+        if (activeSpecialty === 'Allergy') return doc.specialty.includes('Allergy') || doc.specialty.includes('Asthma');
+        if (activeSpecialty === 'Development') return doc.specialty.includes('Development') || doc.specialty.includes('Growth');
+        if (activeSpecialty === 'Cardiology') return doc.specialty.includes('Cardiology');
+        if (activeSpecialty === 'Nutrition') return doc.specialty.includes('Nutrition');
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-12 text-center py-5">
+            <i class="bi bi-search text-muted" style="font-size: 3rem;"></i>
+            <h5 class="fw-bold mt-3">No Specialists Found</h5>
+            <p class="text-muted">No doctors found matching "${searchQuery}". Try selecting another category.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(doc => `
+        <div class="col-md-6 col-lg-4">
+          <div class="doctor-card h-100 d-flex flex-column">
+            <div class="doctor-img-wrap">
+              <img src="${doc.image}" alt="${doc.name}" onerror="this.src='assets/images/doctor-placeholder.svg'">
+              <span class="doctor-experience-tag"><i class="bi bi-clock-history me-1"></i> ${doc.experience}</span>
+              <span class="doctor-rating-tag"><i class="bi bi-star-fill text-warning"></i> ${doc.rating} (${doc.reviews})</span>
+            </div>
+            <div class="doctor-info d-flex flex-column flex-grow-1">
+              <span class="doctor-specialty">${doc.specialty}</span>
+              <h4 class="doctor-name">${doc.name}</h4>
+              <p class="doctor-title">${doc.title}</p>
+              <div class="doctor-schedule">
+                <i class="bi bi-calendar3 me-1 text-primary"></i> <strong>${doc.days}</strong><br>
+                <i class="bi bi-clock me-1 text-primary"></i> ${doc.hours}
+              </div>
+              <div class="d-flex gap-2 mt-auto pt-2">
+                <button class="btn btn-outline-secondary btn-sm flex-fill" onclick="viewDoctorDetails('${doc.id}')">
+                  View Profile
+                </button>
+                <a href="appointments.html?doctor=${doc.id}" class="btn btn-primary btn-sm flex-fill">
+                  Book Visit
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function viewDoctorDetails(docId) {
+      const db = getDB();
+      const doc = db.doctors.find(d => d.id === docId);
+      if (!doc) return;
+
+      document.getElementById('modalDocName').textContent = doc.name;
+      document.getElementById('modalDocTitle').textContent = doc.title;
+      document.getElementById('modalDocSpecialty').textContent = doc.specialty;
+      document.getElementById('modalDocBio').textContent = doc.bio;
+      document.getElementById('modalDocEdu').textContent = doc.education;
+      document.getElementById('modalDocRoom').textContent = doc.room;
+      document.getElementById('modalDocSchedule').textContent = `${doc.days} (${doc.hours})`;
+      document.getElementById('modalDocExp').textContent = `${doc.experience} Experience`;
+      document.getElementById('modalDocImage').src = doc.image;
+      document.getElementById('modalDocBookBtn').href = `appointments.html?doctor=${doc.id}`;
+
+      const modalEl = document.getElementById('doctorProfileModal');
+      const modal = new bootstrap.Modal(modalEl);
+      modal.show();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderDoctors();
+
+      // Search input handler
+      const searchInput = document.getElementById('doctorSearchInput');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value.trim().toLowerCase();
+          renderDoctors();
+        });
+      }
+
+      // Filter pills
+      document.querySelectorAll('#specialtyFilterGroup .filter-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#specialtyFilterGroup .filter-pill').forEach(b => {
+            b.classList.remove('active', 'btn-primary');
+            b.classList.add('btn-outline-secondary');
+          });
+          btn.classList.add('active', 'btn-primary');
+          btn.classList.remove('btn-outline-secondary');
+          activeSpecialty = btn.getAttribute('data-specialty');
+          renderDoctors();
+        });
+      });
+    });
+  </script>
+</body>
+</html>

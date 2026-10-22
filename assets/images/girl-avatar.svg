@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <circle cx="60" cy="60" r="58" fill="#FCE7F3" stroke="#FF758F" stroke-width="3"/>
+  <!-- Pigtails -->
+  <circle cx="28" cy="46" r="14" fill="#581C87"/>
+  <circle cx="92" cy="46" r="14" fill="#581C87"/>
+  <!-- Ribbons -->
+  <path d="M30 46 L24 40 M30 46 L24 52" stroke="#FF758F" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M90 46 L96 40 M90 46 L96 52" stroke="#FF758F" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Main Hair -->
+  <ellipse cx="60" cy="56" rx="34" ry="32" fill="#581C87"/>
+  <!-- Face -->
+  <ellipse cx="60" cy="65" rx="27" ry="28" fill="#FED7AA"/>
+  <!-- Bangs -->
+  <path d="M33 55 C45 42, 75 42, 87 55 C82 50, 72 48, 60 48 C48 48, 38 50, 33 55 Z" fill="#581C87"/>
+  <!-- Eyes with eyelashes -->
+  <circle cx="49" cy="62" r="4.5" fill="#1E293B"/>
+  <circle cx="71" cy="62" r="4.5" fill="#1E293B"/>
+  <circle cx="50.5" cy="60.5" r="1.5" fill="#FFFFFF"/>
+  <circle cx="72.5" cy="60.5" r="1.5" fill="#FFFFFF"/>
+  <path d="M45 57 L43 54" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M75 57 L77 54" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Rosy Cheeks -->
+  <ellipse cx="44" cy="70" rx="4.5" ry="3" fill="#FF758F" opacity="0.6"/>
+  <ellipse cx="76" cy="70" rx="4.5" ry="3" fill="#FF758F" opacity="0.6"/>
+  <!-- Happy Smile -->
+  <path d="M53 73 Q60 81 67 73" stroke="#C2410C" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Cute Dress -->
+  <path d="M36 94 C36 94, 46 88, 60 88 C74 88, 84 94, 84 94 C90 98, 94 112, 94 116 L26 116 C26 112, 30 98, 36 94 Z" fill="#2EC4B6"/>
+  <circle cx="60" cy="98" r="3" fill="#FFF3B0"/>
+  <circle cx="60" cy="108" r="3" fill="#FFF3B0"/>
+</svg>
